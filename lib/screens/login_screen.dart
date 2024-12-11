@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pagination_amit_56/logic/auth/auth_cubit.dart';
+import 'package:pagination_amit_56/features/auth/logic/auth_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

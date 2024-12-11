@@ -1,18 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:pagination_amit_56/core/local/shared_preference.dart';
+import 'package:pagination_amit_56/core/services/services_locator.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioHelper {
   static Dio? dio;
 
   static initDioHelper() {
+    SharedPreferenceHelper preferenceHelper = sl<SharedPreferenceHelper>();
+
     dio = Dio(BaseOptions(
-      baseUrl: "https://todo.iraqsapp.com/",
-      receiveDataWhenStatusError: true,
-      headers: {
-         "Authorization": 'Bearer ${SharedPreferenceHelper.getData(key: "token")}',
-      }
-    ));
+        baseUrl: "https://todo.iraqsapp.com/",
+        receiveDataWhenStatusError: true,
+        headers: {
+          "Authorization":
+              'Bearer ${preferenceHelper.getData(key: "token")}',
+        }));
 
     // customization
     dio!.interceptors.add(PrettyDioLogger(
